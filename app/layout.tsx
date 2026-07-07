@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oswald } from "next/font/google";
+import { Oswald , Dancing_Script } from "next/font/google";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -7,6 +7,12 @@ const oswald = Oswald({
   subsets: ["latin"],
 });
 
+const dancingScript = Dancing_Script({
+  variable: "--font-dancing-script",
+  subsets: ["latin"],
+});
+
+ 
  
 
 export const metadata: Metadata = {
@@ -22,9 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${oswald.variable}  h-full antialiased`}
+      className={`${oswald.variable} ${dancingScript.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col overflow-hidden ">{children}</body>
+      <body className="min-h-full flex flex-col overflow-x-hidden ">{children}</body>
     </html>
   );
 }

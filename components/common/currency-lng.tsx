@@ -236,7 +236,7 @@ export default function CurrencyLanguageSelector({
         <div className={`flex w-full flex-col gap-3 ${className}`}>
             <div className="flex w-full flex-col gap-3 md:flex-row">
                 {showCurrency ? (
-                    <div className="w-full">
+                    <div className="w-full      ">
                         <Select<OptionType, false>
                             menuIsOpen={menuIsOpen === "currency"}
                             options={currencyOptions}
@@ -245,7 +245,7 @@ export default function CurrencyLanguageSelector({
                             isSearchable
                             styles={customStyles}
                             onChange={handleCurrencyChange}
-                            className="w-full min-w-0 text-nowrap "
+                            className="w-full min-w-0 text-nowrap hidescroll  "
                         />
                     </div>
                 ) : null}
@@ -260,7 +260,7 @@ export default function CurrencyLanguageSelector({
                             isSearchable
                             styles={customStyles}
                             onChange={handleLanguageChange}
-                            className="w-full min-w-0 text-nowrap"
+                            className="w-full min-w-0 text-nowrap  hidescroll "
                         />
                     </div>
                 ) : null}

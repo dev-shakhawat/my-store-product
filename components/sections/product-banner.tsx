@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { Container } from "../common/container";
@@ -7,56 +7,79 @@ import { GoPlus } from "react-icons/go";
 import { FaPinterest } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
-import productImage from "@/public/images/product _image.png"
+import productImage from "@/public/images/product _image.png";
+import productImage2 from "@/public/images/product_image_2.png";
+import productImage3 from "@/public/images/product_image_3.webp";
 import { useState } from "react";
 import { XIcon } from "../icons/x-icon";
 import { IoLogoFacebook } from "react-icons/io";
 import Link from "next/link";
 
+import React from "react";
+import { ProductSlider } from "../common/product-slider";
+import { TProduct } from "@/types";
+
 export function ProductBanner() {
-
-  const [count, setCount] = useState<number>(1)
-
+  const [count, setCount] = useState<number>(1);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
   const handleCount = (type: "minus" | "plus") => {
     if (type === "minus" && count > 1) {
-      setCount(count - 1)
+      setCount(count - 1);
     }
     if (type === "plus") {
-      setCount(count + 1)
+      setCount(count + 1);
     }
-  }
+  };
+
+  const allProDucts: TProduct[] = [
+    {
+      name: "Product 1",
+      price: 286.0,
+      image: productImage,
+      desc: "Experience a harmonious blend of premium sound quality and ergonomic design that allows.",
+    },
+    {
+      name: "Product 2",
+      price: 206.0,
+      image: productImage2,
+      desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+      name: "Product 3",
+      price: 308.0,
+      image: productImage3,
+      desc: "Adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+      name: "Product 4",
+      price: 286.0,
+      image: productImage,
+      desc: "Experience a harmonious blend of premium sound quality and ergonomic design that allows.",
+    },
+  ];
 
   return (
-    <div className="bg-black/10 py-10 sm:py-16 lg:py-20">
+    <div className="bg-black/5   ">
       <Container>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-
-          {/* LEFT IMAGE */}
-          <div className="flex justify-center md:justify-start">
-            <Image
-              src={productImage}
-              alt="product image"
-              width={1000}
-              height={1000}
-              className="w-[260px] sm:w-[320px] md:w-[380px] lg:w-[420px] object-contain"
-            />
-          </div>
+        <div className="relative bg-white ">
+          <ProductSlider
+            allProDucts={allProDucts}
+            setCurrentSlide={setCurrentSlide}
+          />
 
           {/* RIGHT CONTENT */}
-          <div className="flex justify-center md:justify-end">
-            <div className="shadow-lg bg-white p-5 sm:p-8 lg:p-10 rounded-2xl w-full max-w-[520px]">
-
+          <div className=" absolute top-35 right-0  flex justify-center md:justify-end">
+            <div className="shadow-lg bg-white p-5 sm:p-8 lg:p-10 rounded-2xl w-full max-w-130 ">
               <h2 className="font-oswald font-bold text-2xl sm:text-3xl lg:text-4xl">
                 Sample
               </h2>
 
               <p className="text-xl sm:text-2xl mt-4">
-                Tk 286.00
+                Tk {allProDucts[currentSlide]?.price.toFixed(2)}
               </p>
 
               <p className="mt-3 text-sm sm:text-base text-gray-600">
-                Experience a harmonious blend of premium sound quality and ergonomic design that allows.
+                {allProDucts[currentSlide]?.desc}
               </p>
 
               {/* QUANTITY */}
@@ -69,9 +92,7 @@ export function ProductBanner() {
                   <LuMinus />
                 </button>
 
-                <span className="text-sm sm:text-base">
-                  {count}
-                </span>
+                <span className="text-sm sm:text-base">{count}</span>
 
                 <button onClick={() => handleCount("plus")}>
                   <GoPlus />
@@ -91,7 +112,6 @@ export function ProductBanner() {
 
               {/* SOCIAL */}
               <div className="flex flex-wrap items-center gap-3 mt-6 text-gray-700">
-
                 <IoLogoFacebook size={22} />
                 <XIcon className="bg-black rounded-full text-white w-5 h-5 grid place-items-center" />
                 <FaPinterest size={20} />
@@ -101,15 +121,11 @@ export function ProductBanner() {
                 <Link href="#" className="underline ml-auto sm:ml-6">
                   Need help?
                 </Link>
-
               </div>
-
             </div>
           </div>
-
         </div>
-
       </Container>
     </div>
-  )
+  );
 }

@@ -84,7 +84,7 @@ export default function AnnouncementBar() {
 
 
   return (
-    <div className="w-full bg-[#000000] text-white! text-base py-0.5 relative ">
+    <div className="w-full bg-[#000000] text-white! text-base py-0.5 relative  ">
       <Container>
 
         <div className="mx-auto flex h-9 items-center justify-between  ">
@@ -161,9 +161,10 @@ export default function AnnouncementBar() {
 
                 <div
 
-                  className={` absolute top-10 transition-all duration-300 w-1/5 flex justify-end  ${activeMenu ? "right-0" : "-right-50  "}    `}>
+                  className={`h-90!  z-5 bg-black rounded-lg! overflow-hidden p-1  absolute top-10 transition-all duration-600 w-1/5 flex justify-end  ${activeMenu ? "right-0" : "-right-100  "}    `}>
 
                   <CurrencyLanguageSelector
+                    className="bg-black"
                     showCurrency={activeMenu === "currency"}
                     showLanguage={activeMenu === "language"}
                     currency={currency}
