@@ -8,7 +8,7 @@ import ProductImage3 from "@/public/images/product_image_3.webp";
 
 export default function NewStyle({}: {}) {
   return (
-    <div className="mt-25 ">
+    <div className="py-25 relative z-10 bg-white ">
       <Container>
         <motion.h2
           initial={{

@@ -4,6 +4,7 @@ import { Nav } from "@/components/common/nav";
 import TextReveal from "@/components/common/text-reveal";
 import AccordianSection from "@/components/sections/accordian-section";
 import FashionCollection from "@/components/sections/fashion-collection";
+import Footer from "@/components/sections/footer";
 import NewStyle from "@/components/sections/new-style";
 import ShowcasePage from "@/components/sections/perfect-comfrotable";
 import { ProductBanner } from "@/components/sections/product-banner";
@@ -19,7 +20,7 @@ export default function Home() {
 
       <Container>
         <TextReveal
-          className=" text-5xl text-center leading-[1.3] font-medium "
+          className="text-2xl md:text-3xl lg:text-5xl text-center leading-[1.3] font-medium "
           lines={[
             "Our latest arrivals bring you innovative ",
             "designs that redefine style, combining ",
@@ -30,9 +31,11 @@ export default function Home() {
       </Container>
 
       <FashionCollection />
-      {/* <ShowcasePage/> */}
+      <ShowcasePage/>
 
       <NewStyle />
+
+      <Footer/>
     </section>
   );
 }

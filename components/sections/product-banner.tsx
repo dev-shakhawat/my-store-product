@@ -58,74 +58,80 @@ export function ProductBanner() {
     },
   ];
 
-  return (
-    <div className="bg-black/5   ">
-      <Container>
-        <div className="relative bg-white ">
-          <ProductSlider
-            allProDucts={allProDucts}
-            setCurrentSlide={setCurrentSlide}
-          />
+return (
+  <div className="bg-black/5">
+    <Container>
+      <div className="relative bg-white flex flex-col lg:block">
+        <ProductSlider
+          allProDucts={allProDucts}
+          setCurrentSlide={setCurrentSlide}
+        />
 
-          {/* RIGHT CONTENT */}
-          <div className=" absolute top-35 right-0  flex justify-center md:justify-end">
-            <div className="shadow-lg bg-white p-5 sm:p-8 lg:p-10 rounded-2xl w-full max-w-130 ">
-              <h2 className="font-oswald font-bold text-2xl sm:text-3xl lg:text-4xl">
-                Sample
-              </h2>
+        {/* RIGHT CONTENT */}
+        <div className="lg:absolute lg:top-35 lg:right-0 mt-6 lg:mt-0 flex justify-center lg:justify-end px-4 lg:px-0">
+          <div className="shadow-lg bg-white p-5 sm:p-8 lg:p-10 rounded-2xl w-full max-w-130">
+            
+            <h2 className="font-oswald font-bold text-2xl sm:text-3xl lg:text-4xl">
+              Sample
+            </h2>
 
-              <p className="text-xl sm:text-2xl mt-4">
-                Tk {allProDucts[currentSlide]?.price.toFixed(2)}
-              </p>
+            <p className="text-xl sm:text-2xl mt-4">
+              Tk {allProDucts[currentSlide]?.price.toFixed(2)}
+            </p>
 
-              <p className="mt-3 text-sm sm:text-base text-gray-600">
-                {allProDucts[currentSlide]?.desc}
-              </p>
+            <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
+              {allProDucts[currentSlide]?.desc}
+            </p>
 
-              {/* QUANTITY */}
-              <h3 className="mt-5 text-sm sm:text-base font-bold font-oswald">
-                Quantity
-              </h3>
+            {/* QUANTITY */}
+            <h3 className="mt-5 text-sm sm:text-base font-bold font-oswald">
+              Quantity
+            </h3>
 
-              <div className="mt-3 p-2 rounded-xl border border-black flex w-fit items-center gap-6 sm:gap-10 py-2 sm:py-3 px-4">
-                <button onClick={() => handleCount("minus")}>
-                  <LuMinus />
-                </button>
+            <div className="mt-3 p-2 rounded-xl border border-black flex w-fit items-center gap-6 sm:gap-10 py-2 sm:py-3 px-4">
+              <button onClick={() => handleCount("minus")}>
+                <LuMinus />
+              </button>
 
-                <span className="text-sm sm:text-base">{count}</span>
+              <span className="text-sm sm:text-base">{count}</span>
 
-                <button onClick={() => handleCount("plus")}>
-                  <GoPlus />
-                </button>
-              </div>
-
-              {/* BUTTONS */}
-              <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                <button className="bg-black text-white font-oswald py-3 flex-1 rounded-full">
-                  Add to cart
-                </button>
-
-                <button className="bg-black text-white font-oswald py-3 flex-1 rounded-full">
-                  Buy it now
-                </button>
-              </div>
-
-              {/* SOCIAL */}
-              <div className="flex flex-wrap items-center gap-3 mt-6 text-gray-700">
-                <IoLogoFacebook size={22} />
-                <XIcon className="bg-black rounded-full text-white w-5 h-5 grid place-items-center" />
-                <FaPinterest size={20} />
-                <IoIosSend size={22} />
-                <MdEmail size={22} />
-
-                <Link href="#" className="underline ml-auto sm:ml-6">
-                  Need help?
-                </Link>
-              </div>
+              <button onClick={() => handleCount("plus")}>
+                <GoPlus />
+              </button>
             </div>
+
+            {/* BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+              <button className="bg-black text-white font-oswald py-3 flex-1 rounded-full">
+                Add to cart
+              </button>
+
+              <button className="bg-black text-white font-oswald py-3 flex-1 rounded-full">
+                Buy it now
+              </button>
+            </div>
+
+            {/* SOCIAL */}
+            <div className="flex flex-wrap items-center gap-3 mt-6 text-gray-700">
+              <IoLogoFacebook size={22} />
+
+              <XIcon className="bg-black rounded-full text-white w-5 h-5 grid place-items-center" />
+
+              <FaPinterest size={20} />
+
+              <IoIosSend size={22} />
+
+              <MdEmail size={22} />
+
+              <Link href="#" className="underline ml-auto sm:ml-6">
+                Need help?
+              </Link>
+            </div>
+
           </div>
         </div>
-      </Container>
-    </div>
-  );
+      </div>
+    </Container>
+  </div>
+);
 }

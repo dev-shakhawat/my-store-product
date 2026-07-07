@@ -3,7 +3,7 @@ import { Container } from "../common/container";
 
 export default function AccordianSection({}: {}) {
   return (
-    <div className="py-25">
+    <div className="py-10 sm:py-15  md:py-20 lg:py-25">
       <Container>
         <div className="max-w-4xl">
           <Accordion title="Description">
